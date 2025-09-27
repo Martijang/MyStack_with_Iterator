@@ -1,5 +1,6 @@
 #ifndef STACK_HPP
 #define STACK_HPP
+#pragma once
 #include <iterator>
 #include <cstddef>
 
@@ -105,7 +106,7 @@ class Stack{
         }
 
         //Pop
-        auto pop(){
+        T pop(){
             if (is_empty() == true)
             {
                 return NULL;
