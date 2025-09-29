@@ -92,7 +92,7 @@ class Stack{
         }
         
         //Push
-        void push(T &item){
+        void push(const T &item){
             if(is_full() == true){
                 resize(m_size * 2);
                 push(item);
