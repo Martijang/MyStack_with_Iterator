@@ -10,7 +10,7 @@ int main(){
     
     //Will be printing from 0-13 not 13-0
     for (int &i: st)
-        std::cout << "POP! " << i << std::endl;
+        std::cout << "GET! " << i << std::endl;
     
     std::cout << std::endl;
 
@@ -23,4 +23,5 @@ int main(){
     std::cout << "SIZE: "<<st.get_size() << std::endl;
     
     return 0;
+
 }
