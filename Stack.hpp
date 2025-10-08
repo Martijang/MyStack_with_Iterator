@@ -31,7 +31,7 @@ class Stack{
     public:
         class Iterator{
             public:
-                using iteraotr_category = std::bidirectional_iterator_tag;
+                using iterator_category = std::bidirectional_iterator_tag;
                 using difference_type = std::ptrdiff_t;
                 using value_type = T;
                 using pointer = T*;
@@ -119,3 +119,4 @@ class Stack{
 };
 
 #endif
+
