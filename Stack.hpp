@@ -4,8 +4,6 @@
 #include <iterator>
 #include <cstddef>
 
-//m_(variable name) == private section variable
-//g_(varable name) == global variables
 template<typename T>
 class Stack{
     private:
@@ -109,7 +107,7 @@ class Stack{
         T pop(){
             if (is_empty() == true)
             {
-                return NULL;
+                return static_cast<T>(0);
             }
             m_capacity--;
             return m_array[m_capacity];
