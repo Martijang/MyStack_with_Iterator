@@ -7,8 +7,8 @@
 template<typename T>
 class Stack{
     private:
-        int m_capacity = 0;
-        std::size_t m_size = 10; //default as 10
+        std::size_t m_capacity;
+        std::size_t m_size;
         T *m_array; //m_array
         
         bool is_full(){
@@ -59,7 +59,6 @@ class Stack{
                 access to internal data, while still keeping it hidden from the outside world.
                 */
 
-
                 //To compare two m_ptr of a, b 
                 friend bool operator==(const Iterator& a, const Iterator& b){ return a.m_ptr == b.m_ptr;};
                 friend bool operator!=(const Iterator& a, const Iterator& b){ return a.m_ptr != b.m_ptr;};
@@ -68,9 +67,12 @@ class Stack{
         };
 
         Stack(){
+            m_capacity = 0;
+            m_size = 10;
             m_array = new T [m_size];
         }
 
+        T& operator[](int index) { return m_array[index];}
         Iterator begin() { return Iterator(&m_array[0]); }
         Iterator end()   { return Iterator(&m_array[m_capacity]); }//end of m_array must be the last elements
         //Returns current ize of stack
@@ -91,9 +93,10 @@ class Stack{
         
         //Push
         void push(const T &item){
-            if(is_full() == true){
+            if(is_full()){
                 resize(m_size * 2);
-                push(item);
+                m_array[m_capacity] = item;
+                m_capacity++;
             }
             m_array[m_capacity] = item;
             m_capacity++;
@@ -105,7 +108,7 @@ class Stack{
 
         //Pop
         T pop(){
-            if (is_empty() == true)
+            if (is_empty())
             {
                 return static_cast<T>(0);
             }
@@ -119,4 +122,3 @@ class Stack{
 };
 
 #endif
-
